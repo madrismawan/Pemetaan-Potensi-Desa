@@ -38,4 +38,10 @@ class LoginController extends Controller
         return redirect()->back()->with('message','Email atau password Anda Salah');
     }
 
+    public function logout(Request $request)
+    {
+       Auth::guard('web')->logout();
+       return redirect('/');
+    }
+
 }

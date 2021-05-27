@@ -9,10 +9,10 @@ Route::get('/', function () {
 
 
 //Contoh Pemanggilan Beberapa Route Auth
-Route::get('/login', 'Auth\LoginController@index')->name('login');
+Route::get('/login', 'Auth\LoginController@index')->name('login.home');
 Route::post('/login', 'Auth\LoginController@submitLogin')->name('login.submit');
-Route::get('/register', 'Auth\RegisterController@index')->name('register');
-Route::post('/register', 'Auth\RegisterController@create')->name('register.submit');
+Route::get('/register', 'Auth\RegisterController@index')->name('register.home');
+Route::post('/register', 'Auth\RegisterController@create')->name('register.create');
 
 
 

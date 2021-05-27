@@ -57,10 +57,11 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
             'name' => $request->username,
             'alamat' => $request->alamat,
-            'notlpn' => $request->notlpn
+            'notlpn' => $request->notlpn,
+            'role' => 0
         ]);
 
-        return redirect()->back()->with(['success' => 'Foto profile berhasil di ubah']);
+        return redirect()->back()->with(['success' => 'Anda Berhasil Registrasi,Silakan Lakukan Login']);
 
     }
 
