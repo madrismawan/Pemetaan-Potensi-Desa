@@ -9,42 +9,57 @@
             <ul class="menu">
 
                 <li class="sidebar-item active ">
-                    <a href="index.html" class='sidebar-link'>
+                    <a href="{{route('dashboard')}}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
-
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i class="bi bi-grid-1x2-fill"></i>
+                        <i class="bi bi-lamp-fill"></i>
                         <span>Profile</span>
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="layout-default.html">Edit Profile</a>
+                            <a href="{{route('user-profile-form')}}">Edit Profile</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="layout-vertical-1-column.html">Logout</a>
+                            <a href="{{route('logout')}}">Logout</a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="sidebar-title">
-                    <a href="layout-horizontal.html">Horizontal Menu</a>
+                {{-- <li class="sidebar-title">Forms &amp; Tables</li> --}}
+
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>Manajement</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{route('data-pemetaan')}}">Data Pemetaan</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="layout-default.html">Add Potensi</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="layout-default.html">Edit Potensi</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="layout-default.html">Verifikasi</a>
+                        </li>
+                    </ul>
                 </li>
 
-                <li class="sidebar-title">Forms &amp; Tables</li>
 
                 <li class="sidebar-item  ">
                     <a href="form-layout.html" class='sidebar-link'>
                         <i class="bi bi-file-earmark-medical-fill"></i>
-                        <span>Form Layout</span>
+                        <span>Report User</span>
                     </a>
                 </li>
-
-
 
                 {{-- <li class="sidebar-title">Pages</li> --}}
 

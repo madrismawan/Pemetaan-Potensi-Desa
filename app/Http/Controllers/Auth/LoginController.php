@@ -32,7 +32,7 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($credential)){
-            return redirect()->intended(route('home'));
+            return redirect()->intended(route('dashboard'));
         }
 
         return redirect()->back()->with('message','Email atau password Anda Salah');
@@ -41,7 +41,7 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
        Auth::guard('web')->logout();
-       return redirect('/');
+       return redirect()->route('login.home');
     }
 
 }

@@ -5,27 +5,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('admin.dashboard');
-})->name('home');
+})->name('home')->middleware('auth');
+
 
 
 //Contoh Pemanggilan Beberapa Route Auth
 Route::get('/login', 'Auth\LoginController@index')->name('login.home');
 Route::post('/login', 'Auth\LoginController@submitLogin')->name('login.submit');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/register', 'Auth\RegisterController@index')->name('register.home');
 Route::post('/register', 'Auth\RegisterController@create')->name('register.create');
 
 
+//Contoh Pemanggilan Beberapa Route USER
+Route::get('/', 'UserController@index')->name('dashboard')->middleware('auth');
+Route::get('/user-profile', 'UserController@edit')->name('user-profile-form');
 
-
-
-//Penyuluhan Contoh Pemanggilan Beberapa dari Route
-// Route::get('/admin/penyuluhan/home', 'PenyuluhanController@index')->name('penyuluhan.home');
-// Route::get('/admin/penyuluhan/create', 'PenyuluhanController@create')->name('penyuluhan.create');
-// Route::post('/admin/penyuluhan/store', 'PenyuluhanController@store')->name('penyuluhan.store');
-// Route::get('/admin/penyuluhan/show/{id}', 'PenyuluhanController@show')->name('penyuluhan.show');
-// Route::post('/admin/penyuluhan/update/{id}', 'PenyuluhanController@update')->name('penyuluhan.update');
-// Route::get('/admin/penyuluhan/get-img/{id}', 'PenyuluhanController@getImage')->name('penyuluhan.get_img');
-// Route::post('/admin/penyuluhan/delete', 'PenyuluhanController@delete')->name('penyuluhan.delete');
+Route::get('/data-pemetaan', 'PemetaanController@dataIndex')->name('data-pemetaan');
 
 
 // //Riwayat Kesehatan Anggota Keluarga User
