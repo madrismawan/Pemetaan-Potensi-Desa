@@ -8,7 +8,7 @@
         <div class="sidebar-menu">
             <ul class="menu">
 
-                <li class="sidebar-item active ">
+                <li class="sidebar-item">
                     <a href="{{route('dashboard')}}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
@@ -42,7 +42,10 @@
                             <a href="{{route('data-pemetaan')}}">Data Pemetaan</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="layout-default.html">Add Potensi</a>
+                            <a href="{{route('data-jenis-pemetaan')}}">Jenis Potensi</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{route('data-add-pemetaan')}}">Add Potensi</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="layout-default.html">Edit Potensi</a>
@@ -68,3 +71,4 @@
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
 </div>
+

@@ -36,12 +36,6 @@
             </div>
         </section>
     </div>
-
-    {{$desa->batasdesa}}
-
     @include('map')
-
-
 @endsection
-
 

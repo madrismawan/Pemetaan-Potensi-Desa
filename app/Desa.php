@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Desa extends Model
 {
@@ -15,9 +16,7 @@ class Desa extends Model
         'batasdesa',
     ];
 
-    public function potensidesa(){
-        return $this->hasOne('App\PotensiDesa','desa_id','id');
-    }
+
 
 
 }

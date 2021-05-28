@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('admin.dashboard');
+Route::get('/test', function () {
+    return view('testing2');
 })->name('home')->middleware('auth');
 
 
@@ -21,7 +21,10 @@ Route::post('/register', 'Auth\RegisterController@create')->name('register.creat
 Route::get('/', 'UserController@index')->name('dashboard')->middleware('auth');
 Route::get('/user-profile', 'UserController@edit')->name('user-profile-form');
 
+//Contoh Pemanggilan Beberapa Route Manjement Pemetaan USER
 Route::get('/data-pemetaan', 'PemetaanController@dataIndex')->name('data-pemetaan');
+Route::get('/jenis-pemetaan', 'PemetaanController@dataJenis')->name('data-jenis-pemetaan');
+Route::get('/add-pemetaan', 'PemetaanController@dataAdd')->name('data-add-pemetaan');
 
 
 // //Riwayat Kesehatan Anggota Keluarga User
