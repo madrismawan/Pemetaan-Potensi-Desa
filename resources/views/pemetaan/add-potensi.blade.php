@@ -78,7 +78,7 @@
                                                     </div>
                                                     <div class="card-content">
                                                         <div class="card-body">
-                                                            <form class="form form-horizontal">
+                                                            <form action="{{route('umkm.store')}}"  method="POST" class="form form-horizontal">
                                                                 @csrf
                                                                 <div class="form-body">
                                                                     <div class="row">
@@ -93,8 +93,13 @@
                                                                             <label>Jenis UMKM</label>
                                                                         </div>
                                                                         <div class="col-md-10 form-group">
-                                                                            <input type="text" id="first-name" class="form-control"
-                                                                                name="jenisUmkm" placeholder="Jenis UMKM">
+                                                                            <select class="form-select" id="basicSelect">
+                                                                                <option>Kuliner</option>
+                                                                                <option>Furnitur</option>
+                                                                                <option>Toko Buku</option>
+                                                                                <option>MUA</option>
+                                                                                <option>Perlengkapan Bayi</option>
+                                                                            </select>
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <label>Deskripsi</label>
@@ -332,24 +337,20 @@
                accessToken: 'pk.eyJ1IjoibWFkZXJpc21hd2FuIiwiYSI6ImNrbGNqMzZ0dDBteHIyb21ydTRqNWQ4MXAifQ.YyTGDJLfKwwufNRVYUdvig'
            }).addTo(mymap);
 
-           // hanya informasi tentang lat&lang
-            mymap.on('mousemove',function(e){
+
+           mymap.on('mousemove',function(e){
                document.getElementById("info").innerHTML="Koordinat :("+e.latlng.lat+","+e.latlng.lng+")";
-            });
+           });
 
-
-            // deklarasikan marker kosong
-            var marker = new L.marker(koordinat,{
-                draggable: 'true',
-            });
 
             // Penyematan marker pada peta Add
-            mymap.on("click", function(event) {
-                var konfirmasi = confirm("Apakah anda ingin menyematkan Lokasi?");
+            mymap.on("dblclick", function(event) {
                 $('#lat').val(event.latlng.lat);
                 $('#lng').val(event.latlng.lng);
+
+                var konfirmasi = confirm("Apakah anda ingin menambahkan marker?");
                 if(konfirmasi!=true){
-                    alert('Anda Membantalakn Penyematan');
+                    alert('Anda Mengcancle Penyematan');
                 }else{
                     if(!marker){
                         marker = L.marker(event.latlng).addTo(mymap);
@@ -357,6 +358,12 @@
                         marker.setLatLng(event.latlng);
                     }
                 }
+
+            });
+
+            // deklarasikan marker kosong
+            var marker = new L.marker(curKoordinat,{
+                draggable: 'true',
             });
 
         });

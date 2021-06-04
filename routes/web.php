@@ -21,21 +21,17 @@ Route::post('/register', 'Auth\RegisterController@create')->name('register.creat
 Route::get('/', 'UserController@index')->name('dashboard')->middleware('auth');
 Route::get('/user-profile', 'UserController@edit')->name('user-profile-form');
 
-//Contoh Pemanggilan Beberapa Route Manjement Pemetaan USER
+//Contoh Pemanggilan Beberapa Route Manjement view Form Pemetaan ADMIN
 Route::get('/data-pemetaan', 'PemetaanController@dataIndex')->name('view-pemetaan');
 Route::get('/jenis-pemetaan', 'PemetaanController@dataJenis')->name('view-jenis-pemetaan');
 Route::get('/add-pemetaan', 'PemetaanController@dataAdd')->name('view-add-pemetaan');
 Route::get('/edit-pemetaan', 'PemetaanController@editView')->name('view-edit-pemetaan');
 
+// Route::get('/edit-pemetaan', 'Pemetaan\EditController@editView')->name('view-edit-pemetaan');
 
-// //Riwayat Kesehatan Anggota Keluarga User
-// Route::prefix('keluarga')->namespace('User\Auth')->group(function(){
-//     Route::get('/anak', 'RiwayatKeluargaController@keluargaAnak')->name('Keluarga Anak');
-//     Route::get('/ibu', 'RiwayatKeluargaController@keluargaIbu')->name('Keluarga Ibu');
-//     Route::get('/lansia', 'RiwayatKeluargaController@keluargaLansia')->name('Keluarga Lansia');
-//     Route::prefix('riwayat')->group(function(){
-//         Route::get('/detail/anak', 'RiwayatKeluargaController@riwayatKeluargaAnak')->name('Riwayat Keluarga Anak');
-//         Route::get('/detail/ibu', 'RiwayatKeluargaController@riwayatKeluargaIbu')->name('Riwayat Keluarga Ibu');
-//         Route::get('/detail/lansia', 'RiwayatKeluargaController@riwayatKeluargaLansia')->name('Riwayat Keluarga Lansia');
-//     });
-// });
+//Contoh Pemanggilan Beberapa Route || Penambahan Potensi Desa Oleh Admin
+Route::post('/umkm/store', 'Pemetaan\AddController@umkmStore')->name('umkm.store');
+Route::post('/sekolah/store', 'Pemetaan\AddController@sekolahStore')->name('sekolah.store');
+Route::post('/ibadah/store', 'Pemetaan\AddController@ibadahStore')->name('ibadah.store');
+
+

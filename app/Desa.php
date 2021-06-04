@@ -16,7 +16,9 @@ class Desa extends Model
         'batasdesa',
     ];
 
-
+    public function potensidesa(){
+        return $this->hasMany('App\PotensiDesa','desa_id','id');
+    }
 
 
 }

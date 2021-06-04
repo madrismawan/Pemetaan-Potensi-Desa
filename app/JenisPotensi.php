@@ -14,6 +14,7 @@ class JenisPotensi extends Model
         'icon',
     ];
 
+
     public function ibadah(){
         return $this->hasOne('App\PotensiIbadah','potensi_id','id');
     }
