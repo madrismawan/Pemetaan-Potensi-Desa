@@ -28,7 +28,7 @@ class PemetaanController extends Controller
         $desa = Desa::first();
         $jenissekolah = JenisSekolah::all();
         $tingkatsekolah = TingkatSekolah::all();
-        return view('pemetaan.add-potensi', compact('desa','tingkatsekolah'));
+        return view('pemetaan.add-potensi', compact('desa','tingkatsekolah','jenissekolah'));
     }
 
 
