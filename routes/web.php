@@ -22,9 +22,10 @@ Route::get('/', 'UserController@index')->name('dashboard')->middleware('auth');
 Route::get('/user-profile', 'UserController@edit')->name('user-profile-form');
 
 //Contoh Pemanggilan Beberapa Route Manjement Pemetaan USER
-Route::get('/data-pemetaan', 'PemetaanController@dataIndex')->name('data-pemetaan');
-Route::get('/jenis-pemetaan', 'PemetaanController@dataJenis')->name('data-jenis-pemetaan');
-Route::get('/add-pemetaan', 'PemetaanController@dataAdd')->name('data-add-pemetaan');
+Route::get('/data-pemetaan', 'PemetaanController@dataIndex')->name('view-pemetaan');
+Route::get('/jenis-pemetaan', 'PemetaanController@dataJenis')->name('view-jenis-pemetaan');
+Route::get('/add-pemetaan', 'PemetaanController@dataAdd')->name('view-add-pemetaan');
+Route::get('/edit-pemetaan', 'PemetaanController@editView')->name('view-edit-pemetaan');
 
 
 // //Riwayat Kesehatan Anggota Keluarga User

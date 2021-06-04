@@ -126,4 +126,9 @@
             </div>
         </section>
     </div>
+    <script>
+        $(document).ready(function(){
+            $('#dashboard').addClass('active');
+        });
+    </script>
 @endsection

@@ -1,19 +1,17 @@
 <script type="text/javascript">
 
      $(document).ready(function(){
-        var mymap = L.map('gmaps').setView([-8.617683234549416, 115.16708493639123], 14);
+        var mymap = L.map('gmaps').setView([-8.617683234549416, 115.16708493639123], 15);
 
 
 
-            L.geoJSON(<?= $desa->batasdesa ?>, {
-                style: {
-                    color: 'white',
-                    fillColor: 'white',
-                    fillOpacity: 0.7
-                },
-            }).addTo(mymap).bindPopup("{{ $desa->namadesa }}");
-
-
+        L.geoJSON(<?= $desa->batasdesa ?>, {
+            style: {
+                color: 'white',
+                fillColor: 'white',
+                fillOpacity: 0.7
+            },
+        }).addTo(mymap);
 
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Adalah API Favoritku',
@@ -28,6 +26,13 @@
         mymap.on('mousemove',function(e){
             document.getElementById("info").innerHTML="Koordinat :("+e.latlng.lat+","+e.latlng.lng+")";
         });
+
+        mymap.on('click', function(e){
+            $('#lat').val(e.latlng.lat);
+            $('#lng').val(e.latlng.lng);
+        });
+
+
      });
 
 </script>

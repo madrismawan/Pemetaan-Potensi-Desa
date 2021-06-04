@@ -16,8 +16,6 @@ class PemetaanController extends Controller
 
     public function dataJenis()
     {
-
-
         $jenispotensi = JenisPotensi::all();
 
         return view('pemetaan.jenis-potensi', compact('jenispotensi'));
@@ -28,6 +26,12 @@ class PemetaanController extends Controller
         $desa = Desa::first();
 
         return view('pemetaan.add-potensi', compact('desa'));
+    }
+
+
+    public function editView()
+    {
+        return view('pemetaan.edit-potensi');
     }
 
 

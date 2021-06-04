@@ -8,20 +8,20 @@
         <div class="sidebar-menu">
             <ul class="menu">
 
-                <li class="sidebar-item">
+                <li id="dashboard" class="sidebar-item">
                     <a href="{{route('dashboard')}}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item  has-sub">
+                <li id="profile" class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-lamp-fill"></i>
                         <span>Profile</span>
                     </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
+                    <ul id="sub-menu-profile" class="submenu">
+                        <li id="edit-profile" class="submenu-item ">
                             <a href="{{route('user-profile-form')}}">Edit Profile</a>
                         </li>
                         <li class="submenu-item ">
@@ -32,25 +32,25 @@
 
                 {{-- <li class="sidebar-title">Forms &amp; Tables</li> --}}
 
-                <li class="sidebar-item  has-sub">
+                <li id="manajement" class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-geo-alt-fill"></i>
                         <span>Manajement</span>
                     </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="{{route('data-pemetaan')}}">Data Pemetaan</a>
+                    <ul id="manajement-sub" class="submenu">
+                        <li id="data-pemetaan" class="submenu-item ">
+                            <a href="{{route('view-pemetaan')}}">Data Pemetaan</a>
                         </li>
-                        <li class="submenu-item ">
-                            <a href="{{route('data-jenis-pemetaan')}}">Jenis Potensi</a>
+                        <li id="jenis-potensi" class="submenu-item ">
+                            <a href="{{route('view-jenis-pemetaan')}}">Jenis Potensi</a>
                         </li>
-                        <li class="submenu-item ">
-                            <a href="{{route('data-add-pemetaan')}}">Add Potensi</a>
+                        <li id="add-potensi" class="submenu-item">
+                            <a href="{{route('view-add-pemetaan')}}">Add Potensi</a>
                         </li>
-                        <li class="submenu-item ">
-                            <a href="layout-default.html">Edit Potensi</a>
+                        <li id="edit-potensi" class="submenu-item ">
+                            <a href="{{route('view-edit-pemetaan')}}">Edit Potensi</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li id="verifikasi" class="submenu-item ">
                             <a href="layout-default.html">Verifikasi</a>
                         </li>
                     </ul>
@@ -63,9 +63,6 @@
                         <span>Report User</span>
                     </a>
                 </li>
-
-                {{-- <li class="sidebar-title">Pages</li> --}}
-
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

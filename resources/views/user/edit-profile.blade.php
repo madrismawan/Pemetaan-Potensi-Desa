@@ -58,6 +58,12 @@
                 </div>
             </div>
         </section>
-
     </div>
+    <script>
+        $(document).ready(function(){
+            $('#sub-menu-profile').addClass('active');
+            $('#profile').addClass('active');
+            $('#edit-profile').addClass('active');
+        });
+    </script>
 @endsection
