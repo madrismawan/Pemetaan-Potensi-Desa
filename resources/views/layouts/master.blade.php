@@ -50,6 +50,57 @@
     <script src="assets/js/pages/dashboard.js"></script>
 
     <script src="assets/js/main.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {{-- <script src="assets/js/extensions/sweetalert2.js"></script>
+    <script src="assets/vendors/sweetalert2/sweetalert2.all.min.js"></script> --}}
+
+    @if($message = Session::get('success'))
+        <script>
+            $(document).ready(function(){
+                alertSuccess('{{$message}}');
+            });
+        </script>
+    @endif
+
+
+    @if($message = Session::get('error'))
+        <script>
+            $(document).ready(function(){
+                alertDanger('{{$message}}');
+            });
+        </script>
+    @endif
+
+
+     <script>
+        function alertSuccess(msg){
+          swal({
+            title: "Sukses",
+            text: msg,
+            icon: "success",
+            button: "Ok",
+          });
+        }
+
+        function alertError(msg){
+          swal({
+            title: "Eror",
+            text: msg,
+            icon: "warning",
+            button: "Ok",
+          });
+        }
+
+        function alertDanger(msg){
+          swal({
+            title: "Peringatan",
+            text: msg,
+            icon: "error",
+            button: "Ok",
+          });
+        }
+    </script>
 </body>
 
 </html>

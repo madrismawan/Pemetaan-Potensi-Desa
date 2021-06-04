@@ -11,7 +11,10 @@ class PotensiUmkm extends Model
     protected $fillable = [
         'potensi_id',
         'nama',
+        'jenis',
         'desc',
+        'image',
+        'alamat',
         'lat',
         'lng',
     ];

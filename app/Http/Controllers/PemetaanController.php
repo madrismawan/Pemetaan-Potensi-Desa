@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Desa;
 use App\User;
 use App\JenisPotensi;
+use App\TingkatSekolah;
+use App\JenisSekolah;
 use Illuminate\Http\Request;
 
 class PemetaanController extends Controller
@@ -24,8 +26,9 @@ class PemetaanController extends Controller
     public function dataAdd()
     {
         $desa = Desa::first();
-
-        return view('pemetaan.add-potensi', compact('desa'));
+        $jenissekolah = JenisSekolah::all();
+        $tingkatsekolah = TingkatSekolah::all();
+        return view('pemetaan.add-potensi', compact('desa','tingkatsekolah'));
     }
 
 

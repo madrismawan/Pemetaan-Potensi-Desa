@@ -78,7 +78,7 @@
                                                     </div>
                                                     <div class="card-content">
                                                         <div class="card-body">
-                                                            <form action="{{route('umkm.store')}}"  method="POST" class="form form-horizontal">
+                                                            <form action="{{route('umkm.store')}}"  method="POST"  enctype="multipart/form-data" class="form form-horizontal">
                                                                 @csrf
                                                                 <div class="form-body">
                                                                     <div class="row">
@@ -87,38 +87,38 @@
                                                                         </div>
                                                                         <div class="col-md-10 form-group">
                                                                             <input type="text" id="first-name" class="form-control"
-                                                                                name="namaUmkm" placeholder="Nama UMKM">
+                                                                                name="nama_umkm" placeholder="Nama UMKM">
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <label>Jenis UMKM</label>
                                                                         </div>
                                                                         <div class="col-md-10 form-group">
-                                                                            <select class="form-select" id="basicSelect">
-                                                                                <option>Kuliner</option>
-                                                                                <option>Furnitur</option>
-                                                                                <option>Toko Buku</option>
-                                                                                <option>MUA</option>
-                                                                                <option>Perlengkapan Bayi</option>
+                                                                            <select name="jenis_umkm" class="form-select" id="basicSelect">
+                                                                                <option value="Kuliner">Kuliner</option>
+                                                                                <option value="Furnitur">Furnitur</option>
+                                                                                <option value="Toko Buku">Toko Buku</option>
+                                                                                <option value="MUA">MUA</option>
+                                                                                <option value="Perlengkapan Bayi">Perlengkapan Bayi</option>
                                                                             </select>
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <label>Deskripsi</label>
                                                                         </div>
                                                                         <div class="col-md-10 form-group">
-                                                                            <textarea name="deskripsi" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                                            <textarea name="deskripsi_umkm" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <label>Gambar UMKM</label>
                                                                         </div>
                                                                         <div class="col-md-10 form-group">
-                                                                            <input class="form-control" type="file" id="formFile">
+                                                                            <input name="image_umkm" class="form-control" type="file" id="formFile">
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <label>Alamat Detail</label>
                                                                         </div>
                                                                         <div class="col-md-10 form-group">
                                                                             <input type="text" id="first-name" class="form-control"
-                                                                                name="fname" placeholder="Alamat Detail">
+                                                                                name="alamat_umkm" placeholder="Alamat Detail">
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <label>Pemetaan Lokasi</label>
@@ -126,8 +126,8 @@
                                                                         <div class="col-md-10 form-group">
                                                                             <div class="input-group">
                                                                                 <a href="#map" class="btn btn-outline-secondary">Pilih Titik Lokasi Potensi</a>
-                                                                                <input id="lat" style="margin-left: 5px" type="text" aria-label="First name" class="form-control" placeholder="Lat" readonly="readonly">
-                                                                                <input id="lng" style="margin-left: 5px" type="text" aria-label="Last name" class="form-control" placeholder="Lang" readonly="readonly">
+                                                                                <input name="lat" id="lat" style="margin-left: 5px" type="text" aria-label="First name" class="form-control" placeholder="Lat" readonly="readonly">
+                                                                                <input name="lng" id="lng" style="margin-left: 5px" type="text" aria-label="Last name" class="form-control" placeholder="Lang" readonly="readonly">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-sm-12 d-flex justify-content-end">
@@ -160,6 +160,7 @@
                                                     <div class="card-content">
                                                         <div class="card-body">
                                                             <form class="form form-horizontal">
+                                                                @csrf
                                                                 <div class="form-body">
                                                                     <div class="row">
                                                                         <div class="col-md-2">
@@ -173,15 +174,25 @@
                                                                             <label>Tingkat Sekolah</label>
                                                                         </div>
                                                                         <div class="col-md-10 form-group">
-                                                                            <input type="text" id="first-name" class="form-control"
-                                                                                name="fname" placeholder="Jenis UMKM">
+                                                                            <select name="jenis_umkm" class="form-select" id="basicSelect">
+                                                                                <option value="Kuliner">Kuliner</option>
+                                                                                <option value="Furnitur">Furnitur</option>
+                                                                                <option value="Toko Buku">Toko Buku</option>
+                                                                                <option value="MUA">MUA</option>
+                                                                                <option value="Perlengkapan Bayi">Perlengkapan Bayi</option>
+                                                                            </select>
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <label>Jenis Sekolah</label>
                                                                         </div>
                                                                         <div class="col-md-10 form-group">
-                                                                            <input type="text" id="first-name" class="form-control"
-                                                                                name="fname" placeholder="Deskripsi">
+                                                                            <select name="jenis_umkm" class="form-select" id="basicSelect">
+                                                                                <option value="Kuliner">Kuliner</option>
+                                                                                <option value="Furnitur">Furnitur</option>
+                                                                                <option value="Toko Buku">Toko Buku</option>
+                                                                                <option value="MUA">MUA</option>
+                                                                                <option value="Perlengkapan Bayi">Perlengkapan Bayi</option>
+                                                                            </select>
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <label>Gambar Sekolah</label>
@@ -368,7 +379,7 @@
 
         });
 
-   </script>
+    </script>
 
 
 @endsection
