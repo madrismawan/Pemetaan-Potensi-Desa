@@ -13,6 +13,8 @@ class PotensiSekolah extends Model
         'tingkat_id',
         'jenis_sekolah_id',
         'namasekolah',
+        'image',
+        'desc',
         'alamat',
         'lat',
         'lng',

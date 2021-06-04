@@ -102,17 +102,19 @@
                                                                             </select>
                                                                         </div>
                                                                         <div class="col-md-2">
-                                                                            <label>Deskripsi</label>
-                                                                        </div>
-                                                                        <div class="col-md-10 form-group">
-                                                                            <textarea name="deskripsi_umkm" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                                                        </div>
-                                                                        <div class="col-md-2">
                                                                             <label>Gambar UMKM</label>
                                                                         </div>
                                                                         <div class="col-md-10 form-group">
                                                                             <input name="image_umkm" class="form-control" type="file" id="formFile">
                                                                         </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <label>Deskripsi</label>
+                                                                        </div>
+                                                                        <div class="col-md-10 form-group">
+                                                                            <textarea name="deskripsi_umkm" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                                        </div>
+
                                                                         <div class="col-md-2">
                                                                             <label>Alamat Detail</label>
                                                                         </div>
@@ -159,7 +161,7 @@
                                                     </div>
                                                     <div class="card-content">
                                                         <div class="card-body">
-                                                            <form class="form form-horizontal">
+                                                            <form action="{{route('sekolah.store')}}" method="POST" enctype="multipart/form-data" class="form form-horizontal" >
                                                                 @csrf
                                                                 <div class="form-body">
                                                                     <div class="row">
@@ -168,53 +170,57 @@
                                                                         </div>
                                                                         <div class="col-md-10 form-group">
                                                                             <input type="text" id="first-name" class="form-control"
-                                                                                name="fname" placeholder="Nama UMKM">
+                                                                                name="nama_sekolah" placeholder="Nama Sekolah">
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <label>Tingkat Sekolah</label>
                                                                         </div>
                                                                         <div class="col-md-10 form-group">
-                                                                            <select name="jenis_umkm" class="form-select" id="basicSelect">
-                                                                                <option value="Kuliner">Kuliner</option>
-                                                                                <option value="Furnitur">Furnitur</option>
-                                                                                <option value="Toko Buku">Toko Buku</option>
-                                                                                <option value="MUA">MUA</option>
-                                                                                <option value="Perlengkapan Bayi">Perlengkapan Bayi</option>
+                                                                            <select name="jenis_sekolah" class="form-select" id="basicSelect">
+                                                                                @foreach ($jenissekolah as $data)
+                                                                                    <option value="{{$data->id}}">{{$data->jenissekolah}}</option>
+                                                                                @endforeach
                                                                             </select>
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <label>Jenis Sekolah</label>
                                                                         </div>
                                                                         <div class="col-md-10 form-group">
-                                                                            <select name="jenis_umkm" class="form-select" id="basicSelect">
-                                                                                <option value="Kuliner">Kuliner</option>
-                                                                                <option value="Furnitur">Furnitur</option>
-                                                                                <option value="Toko Buku">Toko Buku</option>
-                                                                                <option value="MUA">MUA</option>
-                                                                                <option value="Perlengkapan Bayi">Perlengkapan Bayi</option>
+                                                                            <select name="tingkat_sekolah" class="form-select" id="basicSelect">
+                                                                                @foreach ($tingkatsekolah as $data)
+                                                                                    <option value="{{$data->id}}">{{$data->tingkatsekolah}}</option>
+                                                                                @endforeach
                                                                             </select>
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <label>Gambar Sekolah</label>
                                                                         </div>
                                                                         <div class="col-md-10 form-group">
-                                                                            <input class="form-control" type="file" id="formFile">
+                                                                            <input name="image_sekolah" class="form-control" type="file" id="formFile">
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <label>Deskripsi</label>
+                                                                        </div>
+                                                                        <div class="col-md-10 form-group">
+                                                                            <textarea name="deskripsi_sekolah" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <label>Alamat Detail</label>
                                                                         </div>
                                                                         <div class="col-md-10 form-group">
                                                                             <input type="text" id="first-name" class="form-control"
-                                                                                name="fname" placeholder="Alamat Detail">
+                                                                                name="alamat_sekolah" placeholder="Alamat Detail">
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <label>Pemetaan Lokasi</label>
                                                                         </div>
                                                                         <div class="col-md-10 form-group">
-                                                                            <input type="text" id="first-name" class="form-control"
-                                                                                name="fname" placeholder="Pemetaan Lokasi">
+                                                                            <div class="input-group">
+                                                                                <a href="#map" class="btn btn-outline-secondary">Pilih Titik Lokasi Potensi</a>
+                                                                                <input name="lat" id="lat_sekolah" style="margin-left: 5px" type="text" aria-label="First name" class="form-control" placeholder="Lat" readonly="readonly">
+                                                                                <input name="lng" id="lng_sekolah" style="margin-left: 5px" type="text" aria-label="Last name" class="form-control" placeholder="Lang" readonly="readonly">
+                                                                            </div>
                                                                         </div>
-
                                                                         <div class="col-sm-12 d-flex justify-content-end">
                                                                             <button type="submit"
                                                                                 class="btn btn-primary me-1 mb-1">Submit</button>
@@ -358,6 +364,12 @@
             mymap.on("dblclick", function(event) {
                 $('#lat').val(event.latlng.lat);
                 $('#lng').val(event.latlng.lng);
+
+                $('#lat_sekolah').val(event.latlng.lat);
+                $('#lng_sekolah').val(event.latlng.lng);
+
+                $('#lat_ibadah').val(event.latlng.lat);
+                $('#lng_ibadah').val(event.latlng.lng);
 
                 var konfirmasi = confirm("Apakah anda ingin menambahkan marker?");
                 if(konfirmasi!=true){
