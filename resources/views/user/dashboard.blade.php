@@ -169,13 +169,10 @@
             $('#dashboard').addClass('active');
             getAllPotensi();
         });
-
     </script>
     <script type="text/javascript">
-
         //------ section deklarasikan MAPS---------//
         var mymap = L.map('gmaps').setView([-8.617683234549416, 115.16708493639123], 15);
-
         L.geoJSON(<?= $desa->batasdesa ?>, {
             style: {
                 color: 'white',
@@ -183,7 +180,6 @@
                 fillOpacity: 0.7
             },
         }).addTo(mymap);
-
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Adalah API Favoritku',
             maxZoom: 18,
@@ -192,13 +188,10 @@
             zoomOffset: -1,
             accessToken: 'pk.eyJ1IjoibWFkZXJpc21hd2FuIiwiYSI6ImNrbGNqMzZ0dDBteHIyb21ydTRqNWQ4MXAifQ.YyTGDJLfKwwufNRVYUdvig'
         }).addTo(mymap);
-
-
         //------- section clustering------/
         var sekolah = L.markerClusterGroup({
             maxClusterRadius:50,
             zoomToBoundsOnClick:true,
-
             iconCreateFunction: function(cluster) {
                 return L.divIcon({
                     iconSize: [30.30],
@@ -207,13 +200,10 @@
                     html: '<b>' + cluster.getChildCount() + '</b>'
                 });
             }
-
         });
-
         var umkm = L.markerClusterGroup({
             maxClusterRadius:250,
             zoomToBoundsOnClick:true,
-
             iconCreateFunction: function(cluster) {
                 return L.divIcon({
                     iconSize: [30.30],
@@ -223,13 +213,10 @@
                     html: '<b>' + cluster.getChildCount() + '</b>'
                 });
             }
-
         });
-
         var ibadah = L.markerClusterGroup({
             maxClusterRadius:50,
             zoomToBoundsOnClick:true,
-
             iconCreateFunction: function(cluster) {
                 return L.divIcon({
                     iconSize: [30.30],
@@ -238,14 +225,10 @@
                     html: '<b>' + cluster.getChildCount() + '</b>'
                 });
             }
-
         })
-
         mymap.addLayer(sekolah);
         mymap.addLayer(ibadah);
         mymap.addLayer(umkm);
-
-
         // ----------------- SECTION MEMBUAT MARKER -----------------//
         function createMarkerSekolah(potensi) {
             var icMarker = L.icon({
@@ -253,7 +236,6 @@
                 iconSize: [36, 40],
                 iconAnchor: [8 , 40],
                 popupAnchor: [12, -28],
-
             });
             var namaPotensi = 'Jenis Potensi:  ' + potensi['namapotensi'];
             var btn_edit = '<button class="btn btn-warning btn-sm" style="margin-right: 5px;">edit</button>';
@@ -264,7 +246,6 @@
                 icon: icMarker,
                 id : potensi['id']
             }).bindPopup(pop_up);
-
             marker.on('dblclick',function(e){
                 $('#inlineForm').modal('show');
                 $('#jenisPotensi').val(potensi['namapotensi']);
@@ -272,26 +253,21 @@
                 document.getElementById("gambar").src = potensi['image'];
                 $('#moddeskirpsi').val(potensi['desc']);
                 $('#modalalamat').val(potensi['alamat']);
-
             });
-
             sekolah.addLayer(marker);
         }
-
         function createMarkerUmkm(potensi) {
             var icMarker = L.icon({
                 iconUrl: potensi['icon'],
                 iconSize: [36, 40],
                 iconAnchor: [8 , 40],
                 popupAnchor: [12, -28],
-
             });
             // var marker = L.marker(potensi['lat'], potensi['lng']]).addTo(mymap);
             var marker = L.marker([potensi['lat'], potensi['lng']], {
                 icon: icMarker,
                 id : potensi['id']
             });
-
             marker.on('click',function(e){
                 $('#inlineForm').modal('show');
                 $('#jenisPotensi').val(potensi['namapotensi']);
@@ -299,26 +275,21 @@
                 document.getElementById("gambar").src = potensi['image'];
                 $('#moddeskirpsi').val(potensi['desc']);
                 $('#modalalamat').val(potensi['alamat']);
-
             });
-
             umkm.addLayer(marker);
         }
-
         function createMarkerTempatIbadah(potensi) {
             var icMarker = L.icon({
                 iconUrl: potensi['icon'],
                 iconSize: [36, 40],
                 iconAnchor: [8 , 40],
                 popupAnchor: [12, -28],
-
             });
             // var marker = L.marker(potensi['lat'], potensi['lng']]).addTo(mymap);
             var marker = L.marker([potensi['lat'], potensi['lng']], {
                 icon: icMarker,
                 id : potensi['id']
             });
-
             marker.on('click',function(e){
                 $('#inlineForm').modal('show');
                 $('#jenisPotensi').val(potensi['namapotensi']);
@@ -326,19 +297,12 @@
                 document.getElementById("gambar").src = potensi['image'];
                 $('#moddeskirpsi').val(potensi['desc']);
                 $('#modalalamat').val(potensi['alamat']);
-
             });
-
             ibadah.addLayer(marker);
         }
-
-
-
-
         // ----------------- SECTION MEMANGGIL SEMUA DATA MARKER -----------------//
         function getAllPotensi() {
             let url = '{{ route("data-marker") }}';
-
             $.ajax({
                 url : url,
                 dataType : "json",
@@ -356,8 +320,5 @@
                 }
             });
         }
-
-
-
     </script>
 @endsection

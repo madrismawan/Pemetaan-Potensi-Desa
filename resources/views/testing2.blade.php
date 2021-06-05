@@ -36,6 +36,6 @@
             </div>
         </section>
     </div>
-    @include('map')
+    {{-- @include('map') --}}
 @endsection
 

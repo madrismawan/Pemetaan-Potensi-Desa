@@ -35,7 +35,9 @@
                                     <td>{{$loop->iteration }}</td>
                                     <td>{{$data->namapotensi}}</td>
                                     <td>{{$data->tablelink}}</td>
-                                    <td>{{$data->icon}}</td>
+                                    <td>
+                                        <img style="width: 20%" src=" {{$data->icon}}">
+                                   </td>
                                     <td>
                                         <span class="badge bg-success">
                                             <a class="btn-success" data-bs-toggle="modal"

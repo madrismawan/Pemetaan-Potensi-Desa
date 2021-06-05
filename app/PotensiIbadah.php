@@ -23,4 +23,8 @@ class PotensiIbadah extends Model
         return $this->belongsTo('App\JenisPotensi','potensi_id');
     }
 
+    public function agama(){
+        return $this->belongsTo('App\Agama','agama_id');
+    }
+
 }

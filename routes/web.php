@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/test', function () {
+Route::get('sekolah', function () {
     return view('testing2');
 })->name('home')->middleware('auth');
 
@@ -37,6 +37,19 @@ Route::post('/ibadah/store', 'Pemetaan\AddController@ibadahStore')->name('ibadah
 
 //Contoh Pemanggilan Beberapa Route || Edit Potensi Desa Oleh Admin
 Route::post('/edit/icon/{id}', 'Pemetaan\EditController@editIcon');
+
+//Contoh Pemanggilan Beberapa Route || Detail Potensi Desa Oleh Admin
+Route::get('sekolah{id}', 'Pemetaan\EditController@detailSekolah');
+Route::post('update{id}', 'Pemetaan\EditController@updateSekolah');
+
+Route::get('umkm{id}', 'Pemetaan\EditController@detailUmkm');
+Route::post('umkm{id}', 'Pemetaan\EditController@updateUmkm');
+
+
+//Contoh Pemanggilan Beberapa Route || Delete Potensi Desa Oleh Admin
+Route::get('/delete/umkm/{id}', 'Pemetaan\EditController@deleteUmkm');
+Route::get('/delete/sekolah/{id}', 'Pemetaan\EditController@deleteSekolah');
+Route::get('/delete/ibadah/{id}', 'Pemetaan\EditController@deleteIbadah');
 
 
 
