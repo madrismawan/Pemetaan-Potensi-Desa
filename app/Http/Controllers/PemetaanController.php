@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Desa;
 use App\User;
+use App\Agama;
+use App\PotensiIbadah;
+use App\PotensiSekolah;
+use App\PotensiUmkm;
 use App\JenisPotensi;
 use App\TingkatSekolah;
 use App\JenisSekolah;
@@ -13,7 +17,12 @@ class PemetaanController extends Controller
 {
     public function dataIndex()
     {
-        return view('pemetaan.data-pemetaan');
+
+        $desa = Desa::first();
+        $potensisekolah = PotensiSekolah::all();
+        $potensiumkm = PotensiUmkm::all();
+        $potensiibadah = PotensiIbadah::all();
+        return view('pemetaan.data-pemetaan', compact('desa', 'potensisekolah','potensiumkm','potensiibadah'));
     }
 
     public function dataJenis()
@@ -28,13 +37,30 @@ class PemetaanController extends Controller
         $desa = Desa::first();
         $jenissekolah = JenisSekolah::all();
         $tingkatsekolah = TingkatSekolah::all();
-        return view('pemetaan.add-potensi', compact('desa','tingkatsekolah','jenissekolah'));
+        $agama = Agama::all();
+        return view('pemetaan.add-potensi', compact('desa','tingkatsekolah','jenissekolah','agama'));
     }
 
 
     public function editView()
     {
-        return view('pemetaan.edit-potensi');
+        $potensisekolah = PotensiSekolah::all();
+        $potensiumkm = PotensiUmkm::all();
+        $potensiibadah = PotensiIbadah::all();
+
+        return view('pemetaan.edit-potensi', compact('potensisekolah','potensiumkm','potensiibadah'));
+    }
+
+    public function dataMarker()
+    {
+        $potensisekolah = PotensiSekolah::join('tb_jenispotensi','tb_sekolah.potensi_id','tb_jenispotensi.id')
+            ->select('tb_jenispotensi.icon', 'tb_sekolah.*', 'tb_jenispotensi.tablelink')->get();
+        $potensiumkm = PotensiUmkm::all();
+        $potensiibadah = PotensiIbadah::all();
+        $jenispotensi = JenisPotensi::all();
+
+        return response()->json(['data' => $potensisekolah]);
+        // return view('pemetaan.edit-potensi', compact('potensisekolah','potensiumkm','potensiibadah'));
     }
 
 

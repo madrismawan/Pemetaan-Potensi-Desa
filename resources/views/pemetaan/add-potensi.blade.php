@@ -250,54 +250,59 @@
                                                 </div>
                                                 <div class="card-content">
                                                     <div class="card-body">
-                                                        <form class="form form-horizontal">
+                                                        <form action="{{route('ibadah.store')}}" method="POST" enctype="multipart/form-data" class="form form-horizontal">
+                                                            @csrf
                                                             <div class="form-body">
                                                                 <div class="row">
                                                                     <div class="col-md-2">
-                                                                        <label>Nama UMKM</label>
+                                                                        <label>Nama Tempat Ibadah</label>
                                                                     </div>
                                                                     <div class="col-md-10 form-group">
                                                                         <input type="text" id="first-name" class="form-control"
-                                                                            name="fname" placeholder="Nama UMKM">
+                                                                            name="nama_ibadah" placeholder="Nama Tempat Ibadah">
                                                                     </div>
                                                                     <div class="col-md-2">
-                                                                        <label>Jenis UMKM</label>
+                                                                        <label>Agama</label>
                                                                     </div>
                                                                     <div class="col-md-10 form-group">
                                                                         <fieldset class="form-group">
-                                                                            <select class="form-select" id="basicSelect">
-                                                                                <option>IT</option>
-                                                                                <option>Blade Runner</option>
-                                                                                <option>Thor Ragnarok</option>
+                                                                            <select name="agama" class="form-select" id="basicSelect">
+                                                                                @foreach ($agama as $data)
+                                                                                    <option value="{{$data->id}}">{{$data->agama}}</option>
+                                                                                @endforeach
                                                                             </select>
                                                                         </fieldset>
                                                                     </div>
-                                                                    <div class="col-md-2">
-                                                                        <label>Deskripsi</label>
-                                                                    </div>
-                                                                    <div class="col-md-10 form-group">
-                                                                        <input type="text" id="first-name" class="form-control"
-                                                                            name="fname" placeholder="Deskripsi">
-                                                                    </div>
-                                                                    <div class="col-md-2">
-                                                                        <label>Gambar UMKM</label>
-                                                                    </div>
-                                                                    <div class="col-md-10 form-group">
-                                                                        <input class="form-control" type="file" id="formFile">
-                                                                    </div>
+
                                                                     <div class="col-md-2">
                                                                         <label>Alamat Detail</label>
                                                                     </div>
                                                                     <div class="col-md-10 form-group">
                                                                         <input type="text" id="first-name" class="form-control"
-                                                                            name="fname" placeholder="Alamat Detail">
+                                                                            name="alamat_ibadah" placeholder="Alamat Detail">
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <label>Gambar Tempat Ibadah</label>
+                                                                    </div>
+                                                                    <div class="col-md-10 form-group">
+                                                                        <input name="image_ibadah" class="form-control" type="file" id="formFile">
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <label>Deskripsi</label>
+                                                                    </div>
+                                                                    <div class="col-md-10 form-group">
+                                                                        <textarea name="deskripsi_ibadah" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                                                     </div>
                                                                     <div class="col-md-2">
                                                                         <label>Pemetaan Lokasi</label>
                                                                     </div>
+
                                                                     <div class="col-md-10 form-group">
-                                                                        <input type="text" id="first-name" class="form-control"
-                                                                            name="fname" placeholder="Pemetaan Lokasi">
+                                                                        <div class="input-group">
+                                                                            <a href="#map" class="btn btn-outline-secondary">Pilih Titik Lokasi Potensi</a>
+                                                                            <input name="lat" id="lat_ibadah" style="margin-left: 5px" type="text" aria-label="First name" class="form-control" placeholder="Lat" readonly="readonly">
+                                                                            <input name="lng" id="lng_ibadah" style="margin-left: 5px" type="text" aria-label="Last name" class="form-control" placeholder="Lang" readonly="readonly">
+                                                                        </div>
                                                                     </div>
 
                                                                     <div class="col-sm-12 d-flex justify-content-end">

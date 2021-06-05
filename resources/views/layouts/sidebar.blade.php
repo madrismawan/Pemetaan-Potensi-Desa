@@ -18,12 +18,12 @@
                 <li id="profile" class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-lamp-fill"></i>
-                        <span>Profile</span>
+                        <span>Account</span>
                     </a>
                     <ul id="sub-menu-profile" class="submenu">
-                        <li id="edit-profile" class="submenu-item ">
+                        {{-- <li id="edit-profile" class="submenu-item ">
                             <a href="{{route('user-profile-form')}}">Edit Profile</a>
-                        </li>
+                        </li> --}}
                         <li class="submenu-item ">
                             <a href="{{route('logout')}}">Logout</a>
                         </li>

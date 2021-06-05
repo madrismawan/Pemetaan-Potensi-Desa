@@ -27,7 +27,7 @@ Route::get('/jenis-pemetaan', 'PemetaanController@dataJenis')->name('view-jenis-
 Route::get('/add-pemetaan', 'PemetaanController@dataAdd')->name('view-add-pemetaan');
 Route::get('/edit-pemetaan', 'PemetaanController@editView')->name('view-edit-pemetaan');
 
-// Route::get('/edit-pemetaan', 'Pemetaan\EditController@editView')->name('view-edit-pemetaan');
+
 
 //Contoh Pemanggilan Beberapa Route || Penambahan Potensi Desa Oleh Admin
 Route::post('/umkm/store', 'Pemetaan\AddController@umkmStore')->name('umkm.store');
@@ -35,3 +35,12 @@ Route::post('/sekolah/store', 'Pemetaan\AddController@sekolahStore')->name('seko
 Route::post('/ibadah/store', 'Pemetaan\AddController@ibadahStore')->name('ibadah.store');
 
 
+//Contoh Pemanggilan Beberapa Route || Edit Potensi Desa Oleh Admin
+Route::post('/edit/icon/{id}', 'Pemetaan\EditController@editIcon');
+
+
+
+
+
+
+Route::get('/data-marker', 'PemetaanController@dataMarker')->name('view-edit-pemetaan');

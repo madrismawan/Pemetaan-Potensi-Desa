@@ -16,7 +16,7 @@ class PotensiDesa extends Model
 
 
     public function jenispotensi(){
-        return $this->belongsTo('App\JenisPotensi','potensijenis_id');
+        return $this->belongsTo('App\JenisPotensi','potensi_id');
     }
 
     public function desa(){

@@ -19,8 +19,8 @@ class PotensiUmkm extends Model
         'lng',
     ];
 
-    public function potensidesa(){
-        return $this->belongsTo('App\PotensiDesa','potensi_id');
+    public function jenispotensi(){
+        return $this->belongsTo('App\JenisPotensi','potensi_id');
     }
 
 }

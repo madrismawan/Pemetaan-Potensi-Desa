@@ -41,29 +41,36 @@
                                         <table class="table table-striped" id="table1">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Phone</th>
-                                                    <th>City</th>
-                                                    <th>Status</th>
-
+                                                    <th>Nama</th>
+                                                    <th>Jenis</th>
+                                                    <th>Deskripsi</th>
+                                                    <th>Gambar</th>
+                                                    <th>Alamat</th>
+                                                    {{-- <th>Jenis Potensi</th> --}}
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Nathaniel</td>
-                                                    <td>mi.Duis@diam.edu</td>
-                                                    <td>(012165) 76278</td>
-                                                    <td>Grumo Appula</td>
-                                                    <td>
-                                                        <span class="badge bg-success">
-                                                            <a class="btn-success" href="#">Edit</a>
-                                                        </span>
-                                                        <span class="badge bg-danger">
-                                                            <a class="btn-danger" href="#">Delete</a>
-                                                        </span>
-                                                    </td>
-                                                </tr>
+                                                @foreach ($potensiumkm as $data )
+                                                    <tr>
+                                                        <td>{{$data->nama}}</td>
+                                                        <td>{{$data->jenis}}</td>
+                                                        <td>{{$data->desc}}</td>
+                                                        <td>
+                                                            <img style="width: 20%" src="{{$data->image}}">
+                                                        </td>
+                                                        <td>{{$data->alamat}}</td>
+                                                        {{-- <td>{{$data->jenispotensi->namapotensi}}</td> --}}
+                                                        <td>
+                                                            <span class="badge bg-success">
+                                                                <a class="btn-success" href="{{$data->id}}">Edit</a>
+                                                            </span>
+                                                            <span class="badge bg-danger">
+                                                                <a class="btn-danger" href="{{$data->id}}">Delete</a>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -74,43 +81,33 @@
                                         <table class="table table-striped" id="table1">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Phone</th>
-                                                    <th>City</th>
-                                                    <th>Status</th>
-
+                                                    <th>Nama</th>
+                                                    <th>Tingkat</th>
+                                                    <th>Jenis Sekolah</th>
+                                                    <th>Gambar</th>
+                                                    <th>Deskripsi</th>
+                                                    <th>Alamat</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Nathaniel</td>
-                                                    <td>mi.Duis@diam.edu</td>
-                                                    <td>(012165) 76278</td>
-                                                    <td>Grumo Appula</td>
-                                                    <td>
-                                                        <span class="badge bg-success">
-                                                            <a class="btn-success" href="#">Success</a>
-                                                        </span>
-                                                        <span class="badge bg-danger">
-                                                            <a class="btn-danger" href="#">Inactive</a>
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Nathaniel</td>
-                                                    <td>mi.Duis@diam.edu</td>
-                                                    <td>(012165) 76278</td>
-                                                    <td>Grumo Appula</td>
-                                                    <td>
-                                                        <span class="badge bg-success">
-                                                            <a class="btn-success" href="#">Edit</a>
-                                                        </span>
-                                                        <span class="badge bg-danger">
-                                                            <a class="btn-danger" href="#">Delete</a>
-                                                        </span>
-                                                    </td>
-                                                </tr>
+                                                @foreach ($potensisekolah as $data)
+                                                    <tr>
+                                                        <td>{{$data->namasekolah}}</td>
+                                                        <td>{{$data->tingkatsekolah->tingkatsekolah}}</td>
+                                                        <td>{{$data->jenissekolah->jenissekolah}}</td>
+                                                        <td>{{$data->image}}</td>
+                                                        <td>{{$data->desc}}</td>
+                                                        <td>{{$data->alamat}}</td>
+                                                        <td>
+                                                            <span class="badge bg-success">
+                                                                <a class="btn-success" href="#">Edit</a>
+                                                            </span>
+                                                            <span class="badge bg-danger">
+                                                                <a class="btn-danger" href="#">Inactive</a>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

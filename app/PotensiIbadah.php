@@ -13,12 +13,14 @@ class PotensiIbadah extends Model
         'agama_id',
         'nama_tempatibadah',
         'alamat',
+        'image',
+        'desc',
         'lat',
         'lng',
     ];
 
-    public function potensidesa(){
-        return $this->belongsTo('App\PotensiDesa','potensi_id');
+    public function jenispotensi(){
+        return $this->belongsTo('App\JenisPotensi','potensi_id');
     }
 
 }

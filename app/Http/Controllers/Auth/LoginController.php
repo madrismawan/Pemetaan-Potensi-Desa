@@ -33,15 +33,19 @@ class LoginController extends Controller
 
         if (Auth::attempt($credential)){
             return redirect()->intended(route('dashboard'));
+        }else{
+
+            return redirect()->back()->with('message','Email atau password Anda Salah');
         }
 
-        return redirect()->back()->with('message','Email atau password Anda Salah');
+
     }
 
     public function logout(Request $request)
     {
        Auth::guard('web')->logout();
        return redirect()->route('login.home');
+
     }
 
 }

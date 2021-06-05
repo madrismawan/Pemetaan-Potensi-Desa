@@ -61,7 +61,44 @@
             </div>
         </div>
     </div>
+    @if($message = Session::get('success'))
+        <p>
+            asdasdadsasdasd
+        </p>
+    @endif
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {{-- <script src="assets/js/extensions/sweetalert2.js"></script>
+    <script src="assets/vendors/sweetalert2/sweetalert2.all.min.js"></script> --}}
+
+    @if($message = Session::get('error'))
+        <script>
+            $(document).ready(function(){
+                alertDanger('{{$message}}');
+            });
+        </script>
+    @endif
+
+
+     <script>
+        function alertError(msg){
+          swal({
+            title: "Eror",
+            text: msg,
+            icon: "warning",
+            button: "Ok",
+          });
+        }
+
+        function alertDanger(msg){
+          swal({
+            title: "Peringatan",
+            text: msg,
+            icon: "error",
+            button: "Ok",
+          });
+        }
+    </script>
 
 </body>
 
