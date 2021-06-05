@@ -19,7 +19,7 @@ Route::post('/register', 'Auth\RegisterController@create')->name('register.creat
 
 //Contoh Pemanggilan Beberapa Route USER
 Route::get('/', 'UserController@index')->name('dashboard')->middleware('auth');
-Route::get('/user-profile', 'UserController@edit')->name('user-profile-form');
+
 
 //Contoh Pemanggilan Beberapa Route Manjement view Form Pemetaan ADMIN
 Route::get('/data-pemetaan', 'PemetaanController@dataIndex')->name('view-pemetaan');
@@ -43,4 +43,4 @@ Route::post('/edit/icon/{id}', 'Pemetaan\EditController@editIcon');
 
 
 
-Route::get('/data-marker', 'PemetaanController@dataMarker')->name('view-edit-pemetaan');
+Route::get('/data-marker', 'PemetaanController@dataMarker')->name('data-marker');

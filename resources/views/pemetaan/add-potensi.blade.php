@@ -18,31 +18,6 @@
             </div>
         </div>
 
-        <section class="section" id="map">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="row">
-                                <div class="col-5">
-                                    <h5 class="card-title">Maps yang menampilkan Peta Desa Dalung </h5>
-                                </div>
-                                <div class="col-7">
-                                    <h6 style="margin: 10px;font-size: 10px;float: right;" class="card-title">(**Klik 2 Kali Untuk Menyematkan Lokasi**)</h6>
-                                </div>
-
-                            </div>
-                            {{-- <div>
-                                <p id="info">Koordinat :(..............,..............),</p>
-                            </div> --}}
-                            <div id="gmaps" style="height: 450px;"></div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="penambahan">
             <div class="row">
                 <div class="col-md-12">
@@ -323,6 +298,31 @@
                                 <!-- // Basic Horizontal form layout section end -->
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="map">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-5">
+                                    <h5 class="card-title">Maps yang menampilkan Peta Desa Dalung </h5>
+                                </div>
+                                <div class="col-7">
+                                    <h6 style="margin: 10px;font-size: 10px;float: right;" class="card-title">(**Klik 2 Kali Untuk Menyematkan Lokasi**)</h6>
+                                </div>
+
+                            </div>
+                            {{-- <div>
+                                <p id="info">Koordinat :(..............,..............),</p>
+                            </div> --}}
+                            <div id="gmaps" style="height: 450px;"></div>
+
                         </div>
                     </div>
                 </div>

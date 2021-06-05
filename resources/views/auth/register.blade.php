@@ -95,7 +95,7 @@
                 </form>
                 <div class="text-center mt-5 text-lg fs-4">
                     <p class="text-gray-600">Apakah sudah mempunyai akun?
-                        <a href="{{'login.home'}}"class="font-bold">Log In</a>.
+                        <a href="{{route('login.home')}}"class="font-bold">Log In</a>.
                     </p>
                 </div>
             </div>

@@ -22,7 +22,9 @@ class PemetaanController extends Controller
         $potensisekolah = PotensiSekolah::all();
         $potensiumkm = PotensiUmkm::all();
         $potensiibadah = PotensiIbadah::all();
-        return view('pemetaan.data-pemetaan', compact('desa', 'potensisekolah','potensiumkm','potensiibadah'));
+        $tingaksekolah = TingkatSekolah::all();
+        $jenissekolah = JenisSekolah::all();
+        return view('pemetaan.data-pemetaan', compact('desa', 'potensisekolah','potensiumkm','potensiibadah','jenissekolah','tingaksekolah'));
     }
 
     public function dataJenis()
@@ -54,12 +56,17 @@ class PemetaanController extends Controller
     public function dataMarker()
     {
         $potensisekolah = PotensiSekolah::join('tb_jenispotensi','tb_sekolah.potensi_id','tb_jenispotensi.id')
-            ->select('tb_jenispotensi.icon', 'tb_sekolah.*', 'tb_jenispotensi.tablelink')->get();
-        $potensiumkm = PotensiUmkm::all();
-        $potensiibadah = PotensiIbadah::all();
+            ->select('tb_jenispotensi.icon', 'tb_jenispotensi.namapotensi', 'tb_sekolah.*')->get();
+
+        $potensiumkm = PotensiUmkm::join('tb_jenispotensi','tb_umkm.potensi_id','tb_jenispotensi.id')
+            ->select('tb_jenispotensi.icon', 'tb_jenispotensi.namapotensi', 'tb_umkm.*')->get();
+
+        $potensiibadah = PotensiIbadah::join('tb_jenispotensi','tb_tempatibadah.potensi_id','tb_jenispotensi.id')
+            ->select('tb_jenispotensi.icon', 'tb_jenispotensi.namapotensi', 'tb_tempatibadah.*')->get();
+
         $jenispotensi = JenisPotensi::all();
 
-        return response()->json(['data' => $potensisekolah]);
+        return response()->json(['sekolah' => $potensisekolah,'umkm' => $potensiumkm,'ibadah' => $potensiibadah ]);
         // return view('pemetaan.edit-potensi', compact('potensisekolah','potensiumkm','potensiibadah'));
     }
 

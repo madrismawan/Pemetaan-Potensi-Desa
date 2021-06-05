@@ -31,38 +31,35 @@
                 </li>
 
                 {{-- <li class="sidebar-title">Forms &amp; Tables</li> --}}
+                @if (Auth::user()->role == 1)
+                    <li id="manajement" class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <span>Manajement</span>
+                        </a>
+                        <ul id="manajement-sub" class="submenu">
+                            <li id="data-pemetaan" class="submenu-item ">
+                                <a href="{{route('view-pemetaan')}}">Manajement Pemetaan</a>
+                            </li>
+                            <li id="jenis-potensi" class="submenu-item ">
+                                <a href="{{route('view-jenis-pemetaan')}}">Jenis Potensi</a>
+                            </li>
+                            {{-- <li id="add-potensi" class="submenu-item">
+                                <a href="{{route('view-add-pemetaan')}}">Add Potensi</a>
+                            </li> --}}
+                            <li id="edit-potensi" class="submenu-item ">
+                                <a href="{{route('view-edit-pemetaan')}}">Edit Potensi</a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
 
-                <li id="manajement" class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-geo-alt-fill"></i>
-                        <span>Manajement</span>
-                    </a>
-                    <ul id="manajement-sub" class="submenu">
-                        <li id="data-pemetaan" class="submenu-item ">
-                            <a href="{{route('view-pemetaan')}}">Data Pemetaan</a>
-                        </li>
-                        <li id="jenis-potensi" class="submenu-item ">
-                            <a href="{{route('view-jenis-pemetaan')}}">Jenis Potensi</a>
-                        </li>
-                        <li id="add-potensi" class="submenu-item">
-                            <a href="{{route('view-add-pemetaan')}}">Add Potensi</a>
-                        </li>
-                        <li id="edit-potensi" class="submenu-item ">
-                            <a href="{{route('view-edit-pemetaan')}}">Edit Potensi</a>
-                        </li>
-                        <li id="verifikasi" class="submenu-item ">
-                            <a href="layout-default.html">Verifikasi</a>
-                        </li>
-                    </ul>
-                </li>
-
-
-                <li class="sidebar-item  ">
+                {{-- <li class="sidebar-item  ">
                     <a href="form-layout.html" class='sidebar-link'>
                         <i class="bi bi-file-earmark-medical-fill"></i>
                         <span>Report User</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

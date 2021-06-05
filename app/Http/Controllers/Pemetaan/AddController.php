@@ -15,7 +15,7 @@ class AddController extends Controller
     public function umkmStore(Request $request)
     {
 
-        $path ='/image-potensi/umkm/'.time().'-'.$request->image_umkm->getClientOriginalName();
+        $path ='image-potensi/umkm/'.time().'-'.$request->image_umkm->getClientOriginalName();
         $imageName = time().'-'.$request->image_umkm->getClientOriginalName();
 
         $request->image_umkm->move(public_path('image-potensi/umkm'),$imageName);
@@ -39,7 +39,7 @@ class AddController extends Controller
     {
 
 
-        $path ='/image-potensi/sekolah/'.time().'-'.$request->image_sekolah->getClientOriginalName();
+        $path ='image-potensi/sekolah/'.time().'-'.$request->image_sekolah->getClientOriginalName();
         $imageName = time().'-'.$request->image_sekolah->getClientOriginalName();
 
         $request->image_sekolah->move(public_path('image-potensi/sekolah'),$imageName);
@@ -63,7 +63,7 @@ class AddController extends Controller
     public function ibadahStore(Request $request)
     {
 
-        $path ='/image-potensi/ibadah/'.time().'-'.$request->image_ibadah->getClientOriginalName();
+        $path ='image-potensi/ibadah/'.time().'-'.$request->image_ibadah->getClientOriginalName();
         $imageName = time().'-'.$request->image_ibadah->getClientOriginalName();
 
         $request->image_ibadah->move(public_path('image-potensi/ibadah'),$imageName);

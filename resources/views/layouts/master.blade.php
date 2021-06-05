@@ -28,6 +28,53 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
 
+    <!-- library Clustering Map -->
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js" integrity="sha512-WXoSHqw/t26DszhdMhOXOkI7qCiv5QWXhH9R7CgvgZMHz1ImlkVQ3uNsiQKu5wwbbxtPzFXd1hK4tzno2VqhpA==" crossorigin=""></script>
+    <link rel="stylesheet" href="Leaflet.markercluster-1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="Leaflet.markercluster-1.4.1/dist/MarkerCluster.Default.css" />
+    <script src="Leaflet.markercluster-1.4.1/dist/leaflet.markercluster-src.js"></script>
+
+    <style>
+        .sekolah  {
+			width: 50px;
+			height: 40px;
+            position: absolute;
+            border-radius: 25%;
+			background-color: #A9A9A9;
+			text-align: center;
+			font-size: 24px;
+            text-shadow: 0 1px 0 black, 0 -1px 0 black, 1px 0 0 black, -1px 0 0 black;
+            color: white;
+            font-size: 24px;
+            text-transform: uppercase;
+            text-align: center;
+            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.5);
+		}
+
+		.umkm  {
+			width: 40px;
+			height: 40px;
+            position: absolute;
+            border-radius: 25%;
+            color: white;
+			background-color: #9ACD32;
+			text-align: center;
+			font-size: 24px;
+            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.5);
+		}
+
+        .ibadah  {
+			width: 40px;
+			height: 40px;
+            position: absolute;
+            border-radius: 25%;
+			background-color: #E6E6FA;
+			text-align: center;
+			font-size: 24px;
+            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.5);
+		}
+
+	</style>
 
 </head>
 

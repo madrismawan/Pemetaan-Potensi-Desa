@@ -2,13 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Desa;
+use App\PotensiSekolah;
+use App\PotensiUmkm;
+use App\PotensiIbadah;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function index()
     {
-        return view('user.dashboard');
+        $desa = Desa::first();
+        $potensisekolah = PotensiSekolah::count();
+        $potensiibadah = PotensiIbadah::count();
+        $potensiumkm = PotensiUmkm::count();
+
+        return view('user.dashboard',compact('desa','potensisekolah','potensiibadah','potensiumkm'));
     }
 
     public function edit()

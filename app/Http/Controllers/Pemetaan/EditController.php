@@ -16,7 +16,7 @@ class EditController extends Controller
 
     public function editIcon(Request $request, $id)
     {
-        $path ='/icon/'.time().'-'.$request->icon->getClientOriginalName();
+        $path ='icon/'.time().'-'.$request->icon->getClientOriginalName();
         $imageName = time().'-'.$request->icon->getClientOriginalName();
 
         $request->icon->move(public_path('icon/'),$imageName);
